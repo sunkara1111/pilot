@@ -5,18 +5,9 @@
 [build.processing]
   skip_processing = false
 
-# Neutralize injected Netlify HUD / drawer scripts. Do not block /.netlify/ forms.
-[[redirects]]
-  from = "/.netlify/scripts/hud"
-  to = "/js/empty.js"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "/.netlify/scripts/hud*"
-  to = "/js/empty.js"
-  status = 200
-  force = true
+# Do not rewrite reserved /.netlify/* paths (HUD, forms, functions).
+# Those two HUD rules were invalid and ignored by Netlify. Turn the
+# drawer off in Site configuration instead (see DOMAIN.md).
 
 # Google Search Console HTML file verification. Keep this path at site root.
 [[headers]]

@@ -75,8 +75,24 @@ check(fs.existsSync(path.join(ROOT, "DOMAIN.md")), "DOMAIN.md custom-domain chec
 var gsc = fs.readFileSync(path.join(ROOT, "google04d4f9506cc11bf7.html"), "utf8").replace(/\n$/, "");
 check(gsc === "google-site-verification: google04d4f9506cc11bf7.html", "Search Console verification file has the exact body");
 var toml = fs.readFileSync(path.join(ROOT, "netlify.toml"), "utf8");
-check(toml.indexOf("/.netlify/scripts/hud") !== -1, "netlify.toml neutralizes the HUD script path");
+check(!/from\s*=\s*["']\/\.netlify\//.test(toml), "netlify.toml does not rewrite reserved /.netlify/ paths");
 check(toml.indexOf("Content-Security-Policy") !== -1, "netlify.toml sets a public CSP");
+
+var prettyRewrites = [
+  ["/tools/business-writer", "/tools/business-writer.html"],
+  ["/tools/resume-helper", "/tools/resume-helper.html"],
+  ["/tools/message-check", "/tools/message-check.html"],
+  ["/tools/reply", "/tools/reply.html"]
+];
+prettyRewrites.forEach(function (pair) {
+  var from = pair[0];
+  var to = pair[1];
+  var block = new RegExp(
+    "from\\s*=\\s*[\"']" + from.replace(/\//g, "\\/") + "[\"']\\s*\\n\\s*to\\s*=\\s*[\"']" +
+      to.replace(/\//g, "\\/") + "[\"']\\s*\\n\\s*status\\s*=\\s*200"
+  );
+  check(block.test(toml), "pretty URL 200 rewrite " + from + " → " + to);
+});
 
 var sitemap = fs.readFileSync(path.join(ROOT, "sitemap.xml"), "utf8");
 var robotsTxt = fs.readFileSync(path.join(ROOT, "robots.txt"), "utf8");
