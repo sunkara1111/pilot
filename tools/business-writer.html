@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F6F4F0">
+  <meta name="author" content="DINESHGOPISUNKARA">
+  <meta name="robots" content="index,follow">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../favicon.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <link rel="manifest" href="../manifest.webmanifest">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Pilot">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            paper: { DEFAULT: "#F6F4F0", deep: "#EDE8DF" },
+            ink: { DEFAULT: "#171614", soft: "#3D3A35", muted: "#6F6A63" },
+            line: "#E6E1D8",
+            accent: { DEFAULT: "#2F6FED", deep: "#1E4FC4", soft: "#EAF1FF" }
+          },
+          fontFamily: {
+            sans: ['"DM Sans"', "ui-sans-serif", "system-ui", "sans-serif"],
+            display: ['"Fraunces"', "ui-serif", "Georgia", "serif"]
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/pilot.css">
+  <title>Business Writer — Pilot</title>
+  <meta name="description" content="Everyday business writing drafts you can edit before sending.">
+  <link rel="canonical" href="https://get-pilot-app.netlify.app/tools/business-writer">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Pilot">
+  <meta property="og:title" content="Business Writer">
+  <meta property="og:description" content="Everyday business writing drafts you can edit before sending.">
+  <meta property="og:url" content="https://get-pilot-app.netlify.app/tools/business-writer">
+  <meta property="og:image" content="https://get-pilot-app.netlify.app/icons/icon-512.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Business Writer — Pilot">
+  <meta name="twitter:description" content="Everyday business writing drafts you can edit before sending.">
+</head>
+<body class="font-sans antialiased pilot-shell text-ink flex min-h-screen flex-col">
+  <a href="#tool" class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:bg-accent focus:text-white focus:px-3 focus:py-2 focus:rounded">Skip to tool</a>
+  <header class="sticky top-0 z-40 border-b border-line/80 bg-paper/90 backdrop-blur-md">
+    <div class="mx-auto flex h-16 max-w-5xl items-center justify-between px-5">
+      <a class="font-display text-xl font-semibold tracking-tight text-ink" href="/">Pilot</a>
+      <nav class="hidden items-center gap-7 text-sm sm:flex" aria-label="Primary">
+        <a class="text-ink-muted hover:text-ink" href="/">Home</a>
+        <a class="text-ink font-medium" href="/tools/">Tools</a>
+        <a class="text-ink-muted hover:text-ink" href="/about">About</a>
+        <a class="text-ink-muted hover:text-ink" href="/privacy">Privacy</a>
+        <a class="text-ink-muted hover:text-ink" href="/terms">Terms</a>
+      </nav>
+      <div class="flex items-center gap-2">
+        <button type="button" id="nav-toggle" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line text-ink sm:hidden" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menu"><span aria-hidden="true">☰</span></button>
+        <a class="pilot-btn pilot-btn-primary hidden sm:inline-flex !py-2.5 !px-4 !text-sm" href="/tools/business-writer">Open tool</a>
+      </div>
+    </div>
+    <div id="mobile-nav" class="pilot-nav-panel border-t border-line px-5 py-4 sm:hidden">
+      <nav class="flex flex-col gap-3 text-sm" aria-label="Mobile">
+        <a href="/">Home</a>
+        <a href="/tools/">Tools</a>
+        <a href="/about">About</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a class="pilot-btn pilot-btn-primary mt-2 !text-sm" href="/tools/business-writer">Open tool</a>
+      </nav>
+    </div>
+  </header>
+  <div class="border-b border-line bg-white/60">
+    <div class="mx-auto max-w-5xl px-5 py-3">
+      <p class="pilot-disclaimer px-4 py-3 text-sm leading-relaxed m-0">
+        <strong>Review before you use.</strong> Output may contain mistakes. Do not paste passwords, payment details, or private data.
+      </p>
+    </div>
+  </div>
+  <main id="tool" class="mx-auto w-full max-w-5xl flex-1 px-5 py-10">
+    <div class="mb-6 flex flex-wrap items-end justify-between gap-3">
+      <div>
+        <p class="text-sm font-medium text-accent">Pilot tool</p>
+        <h1 class="font-display text-3xl text-ink sm:text-4xl">Business Writer</h1>
+        <p class="mt-2 max-w-2xl text-ink-muted">Everyday business writing drafts you can edit before sending.</p>
+      </div>
+      <p id="usage-left" class="text-sm text-ink-muted">— / — today</p>
+    </div>
+    <div id="limit-banner" class="hidden mb-4 rounded-xl border border-line bg-paper-deep px-4 py-3 text-sm text-ink-soft">
+      Daily limit reached. Come back tomorrow.
+    </div>
+    <div class="grid gap-6 lg:grid-cols-2">
+      <section class="pilot-surface p-5 space-y-4">
+        <div class="grid gap-3 sm:grid-cols-2">
+          <div>
+            <label for="kind" class="block text-sm font-medium text-ink">Type</label>
+            <select id="kind" class="pilot-select mt-1.5">
+              <option value="email">Email</option>
+              <option value="followup">Follow-up</option>
+              <option value="proposal">Proposal</option>
+              <option value="apology">Apology</option>
+              <option value="announcement">Announcement</option>
+            </select>
+          </div>
+          <div>
+            <label for="tone" class="block text-sm font-medium text-ink">Tone</label>
+            <select id="tone" class="pilot-select mt-1.5">
+              <option value="professional">Professional</option>
+              <option value="casual">Casual</option>
+              <option value="formal">Formal</option>
+              <option value="direct">Direct</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label for="notes" class="block text-sm font-medium text-ink">Your notes</label>
+          <textarea id="notes" rows="10" class="pilot-textarea mt-1.5" placeholder="What do you need to say? Include audience, goal, and any must-have details."></textarea>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <button type="button" id="generate" class="pilot-btn pilot-btn-primary">Generate</button>
+          <button type="button" id="copy" class="pilot-btn pilot-btn-ghost">Copy result</button>
+        </div>
+      </section>
+      <section class="pilot-surface p-5">
+        <label for="output" class="block text-sm font-medium text-ink">Result</label>
+        <textarea id="output" rows="16" class="pilot-textarea mt-1.5" placeholder="Your draft appears here."></textarea>
+        <p class="mt-3 text-xs text-ink-muted">Runs in your browser. Nothing is sent to a server.</p>
+      </section>
+    </div>
+  </main>
+  <footer class="border-t border-line mt-auto">
+    <div class="mx-auto flex max-w-5xl flex-col gap-6 px-5 py-10 sm:flex-row sm:items-start sm:justify-between">
+      <div>
+        <a class="font-display text-lg font-semibold text-ink" href="/">Pilot</a>
+        <p class="mt-1 text-sm text-ink-muted">Free AI tools for everyday work</p>
+        <p class="mt-3 text-xs text-ink-muted/80">Pilot™ · Reply™</p>
+      </div>
+      <nav class="flex flex-wrap gap-x-5 gap-y-2 text-sm text-ink-muted" aria-label="Footer">
+        <a class="hover:text-ink" href="/">Home</a>
+        <a class="hover:text-ink" href="/tools/">Tools</a>
+        <a class="hover:text-ink" href="/about">About</a>
+        <a class="hover:text-ink" href="/privacy">Privacy</a>
+        <a class="hover:text-ink" href="/terms">Terms</a>
+        <a class="hover:text-ink" href="/brand">Brand</a>
+        <a class="hover:text-ink" href="/copyright">Copyright</a>
+        <a class="hover:text-ink" href="/ip">IP</a>
+      </nav>
+    </div>
+    <div class="border-t border-line/70">
+      <p class="mx-auto max-w-5xl px-5 py-4 text-xs text-ink-muted">© <span class="y"></span> DINESHGOPISUNKARA · Pilot</p>
+    </div>
+  </footer>
+  <script>
+    document.querySelectorAll(".y").forEach(function(el){ el.textContent = new Date().getFullYear(); });
+    (function(){
+      var btn = document.getElementById("nav-toggle");
+      var panel = document.getElementById("mobile-nav");
+      if (btn && panel) {
+        btn.addEventListener("click", function(){
+          var open = panel.classList.toggle("open");
+          btn.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+      }
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function(){
+          navigator.serviceWorker.register("../sw.js").catch(function(){});
+        });
+      }
+    })();
+  </script>
+  <script src="../js/pilot-tool-limit.js"></script>
+  <script src="../js/business-writer.js"></script>
+</body>
+</html>
