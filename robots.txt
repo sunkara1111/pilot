@@ -1,0 +1,5 @@
+# Pilot — free web app (static)
+User-agent: *
+Allow: /
+
+Sitemap: /sitemap.xml
