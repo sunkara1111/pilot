@@ -32,6 +32,8 @@ node tests/branding.test.js
 
 ## Deploy
 
+See [DEPLOY.md](DEPLOY.md) if `https://get-pilot-app.netlify.app/` is still on the old Coming soon publish. Link this GitHub repo (`main`, publish `.`) to that existing Netlify site and trigger a production deploy.
+
 Static site. Publish the repo root. `netlify.toml` pretty-URL redirects and `data-netlify` feedback forms stay for hosting — they are not visitor-facing badges.
 
 Public pages use path-relative links. Canonicals, Open Graph URLs, and `js/site-config.js` read a `SITE_URL` env/config constant. Leave it unset until a custom domain is attached. Do not set `SITE_URL` to a `*.netlify.app` host; the stamp script will refuse that for HTML. `sitemap.xml` and `robots.txt` always use absolute https URLs (the live Netlify origin until `SITE_URL` is a custom domain) so Search Console accepts them.
