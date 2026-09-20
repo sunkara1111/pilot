@@ -1,0 +1,56 @@
+[build]
+  publish = "."
+  command = "node tests/composers.test.js"
+
+[build.processing]
+  skip_processing = false
+
+[[redirects]]
+  from = "/tools/business-writer"
+  to = "/tools/business-writer.html"
+  status = 200
+
+[[redirects]]
+  from = "/tools/resume-helper"
+  to = "/tools/resume-helper.html"
+  status = 200
+
+[[redirects]]
+  from = "/tools/message-check"
+  to = "/tools/message-check.html"
+  status = 200
+
+[[redirects]]
+  from = "/tools/reply"
+  to = "/tools/reply.html"
+  status = 200
+
+[[redirects]]
+  from = "/about"
+  to = "/about.html"
+  status = 200
+
+[[redirects]]
+  from = "/privacy"
+  to = "/privacy.html"
+  status = 200
+
+[[redirects]]
+  from = "/terms"
+  to = "/terms.html"
+  status = 200
+
+[[redirects]]
+  from = "/brand"
+  to = "/brand.html"
+  status = 200
+
+[[redirects]]
+  from = "/copyright"
+  to = "/copyright.html"
+  status = 200
+
+[[redirects]]
+  from = "/ip"
+  to = "/ip.html"
+  status = 200
