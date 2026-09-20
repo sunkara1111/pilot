@@ -1,0 +1,41 @@
+name: Deploy production to Netlify
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Test composers and branding
+        run: |
+          node tests/composers.test.js
+          node tests/branding.test.js
+
+      - name: Require Netlify secrets
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: |
+          if [ -z "$NETLIFY_AUTH_TOKEN" ] || [ -z "$NETLIFY_SITE_ID" ]; then
+            echo "NETLIFY_AUTH_TOKEN and NETLIFY_SITE_ID are not set."
+            echo "Production get-pilot-app.netlify.app is not linked to this GitHub repo."
+            echo "Link sunkara1111/pilot (branch main, publish .) in the Netlify UI, or add those secrets and re-run."
+            echo "Site id for the live hostname: fa560eb3-53e4-4ae8-9818-395a29e7ac2a"
+            exit 1
+          fi
+
+      - name: Deploy production
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: |
+          npx --yes netlify-cli@23 deploy --prod --dir . --site "$NETLIFY_SITE_ID" --message "main $(git rev-parse --short HEAD)"
