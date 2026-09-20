@@ -1,0 +1,36 @@
+[build]
+  publish = "."
+
+[build.processing.html]
+  pretty_urls = true
+
+# Pretty paths for the three new tools (and trailing-slash variants).
+[[redirects]]
+  from = "/tools/business-writer"
+  to = "/tools/business-writer.html"
+  status = 200
+
+[[redirects]]
+  from = "/tools/business-writer/"
+  to = "/tools/business-writer.html"
+  status = 200
+
+[[redirects]]
+  from = "/tools/resume-helper"
+  to = "/tools/resume-helper.html"
+  status = 200
+
+[[redirects]]
+  from = "/tools/resume-helper/"
+  to = "/tools/resume-helper.html"
+  status = 200
+
+[[redirects]]
+  from = "/tools/message-check"
+  to = "/tools/message-check.html"
+  status = 200
+
+[[redirects]]
+  from = "/tools/message-check/"
+  to = "/tools/message-check.html"
+  status = 200

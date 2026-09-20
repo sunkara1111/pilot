@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F6F4F0">
+  <meta name="author" content="DINESHGOPISUNKARA">
+  <meta name="robots" content="index,follow">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Pilot">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            paper: { DEFAULT: "#F6F4F0", deep: "#EDE8DF" },
+            ink: { DEFAULT: "#171614", soft: "#3D3A35", muted: "#6F6A63" },
+            line: "#E6E1D8",
+            accent: { DEFAULT: "#2F6FED", deep: "#1E4FC4", soft: "#EAF1FF" }
+          },
+          fontFamily: {
+            sans: ['"DM Sans"', "ui-sans-serif", "system-ui", "sans-serif"],
+            display: ['"Fraunces"', "ui-serif", "Georgia", "serif"]
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/pilot.css">
+  <title>Pilot — Free AI tools for everyday work</title>
+  <meta name="description" content="Pilot — Free AI tools for everyday work. Start with Reply, a free customer-response generator. Simple drafts you can edit and send.">
+  <meta name="keywords" content="Pilot, free AI tools, Pilot free AI Reply, customer response generator">
+  <link rel="canonical" href="https://get-pilot-app.netlify.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://get-pilot-app.netlify.app/icons/icon-512.png">
+  <meta name="twitter:image" content="https://get-pilot-app.netlify.app/icons/icon-512.png">
+  <meta property="og:site_name" content="Pilot">
+  <meta property="og:title" content="Pilot — Free AI tools for everyday work">
+  <meta property="og:description" content="Pilot free AI Reply for everyday work. Draft clear customer responses in your browser.">
+  <meta property="og:url" content="https://get-pilot-app.netlify.app/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pilot — Free AI tools for everyday work">
+  <meta name="twitter:description" content="Pilot free AI Reply — simple in-browser drafts you can review and edit.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://get-pilot-app.netlify.app/#website",
+        "name": "Pilot",
+        "url": "https://get-pilot-app.netlify.app/",
+        "description": "Pilot — Free AI tools for everyday work.",
+        "publisher": {"@id": "https://get-pilot-app.netlify.app/#organization"},
+        "inLanguage": "en"
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://get-pilot-app.netlify.app/#organization",
+        "name": "Pilot",
+        "url": "https://get-pilot-app.netlify.app/",
+        "email": "dineshgopisunkara0228@gmail.com",
+        "founder": {"@id": "https://get-pilot-app.netlify.app/#founder"},
+        "foundingDate": "2026"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Reply",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "description": "Free customer-response generator. Paste a message, pick a tone, get an editable draft.",
+        "url": "https://get-pilot-app.netlify.app/tools/reply.html",
+        "publisher": {"@id": "https://get-pilot-app.netlify.app/#organization"}
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Business Writer",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "description": "Everyday business writing drafts you can edit before sending.",
+        "url": "https://get-pilot-app.netlify.app/tools/business-writer",
+        "publisher": {"@id": "https://get-pilot-app.netlify.app/#organization"}
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Resume Helper",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "description": "Turn rough notes into stronger resume bullets or a short cover letter.",
+        "url": "https://get-pilot-app.netlify.app/tools/resume-helper",
+        "publisher": {"@id": "https://get-pilot-app.netlify.app/#organization"}
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Message Check",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "description": "Spot suspicious messages before you act.",
+        "url": "https://get-pilot-app.netlify.app/tools/message-check",
+        "publisher": {"@id": "https://get-pilot-app.netlify.app/#organization"}
+      },
+      {
+        "@type": "Person",
+        "@id": "https://get-pilot-app.netlify.app/#founder",
+        "name": "DINESHGOPISUNKARA",
+        "alternateName": ["Dineshgopi Sunkara", "Dinesh Gopi Sunkara"],
+        "jobTitle": "Founder",
+        "url": "https://get-pilot-app.netlify.app/about.html",
+        "worksFor": {"@id": "https://get-pilot-app.netlify.app/#organization"},
+        "sameAs": ["https://www.linkedin.com/in/dineshgopisunkara"]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="font-sans antialiased pilot-shell text-ink flex min-h-screen flex-col">
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:bg-accent focus:text-white focus:px-3 focus:py-2 focus:rounded">Skip to content</a>
+  <header class="sticky top-0 z-40 border-b border-line/80 bg-paper/90 backdrop-blur-md">
+    <div class="mx-auto flex h-16 max-w-5xl items-center justify-between px-5">
+      <a class='font-display text-xl font-semibold tracking-tight text-ink' href='/'>Pilot</a>
+      <nav class="hidden items-center gap-7 text-sm sm:flex" aria-label="Primary">
+        <a class='text-ink font-medium' href='/'>Home</a>
+        <a class='text-ink-muted hover:text-ink' href='/tools/'>Tools</a>
+        <a class='text-ink-muted hover:text-ink' href='/about'>About</a>
+        <a class='text-ink-muted hover:text-ink' href='/privacy'>Privacy</a>
+        <a class='text-ink-muted hover:text-ink' href='/terms'>Terms</a>
+      </nav>
+      <div class="flex items-center gap-2">
+        <button type="button" id="nav-toggle" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line text-ink sm:hidden" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menu">
+          <span class="text-lg leading-none">☰</span>
+        </button>
+        <a class='pilot-btn pilot-btn-primary hidden sm:inline-flex !py-2.5 !px-4 !text-sm' href='/tools/reply'>Get Started Free</a>
+      </div>
+    </div>
+    <div id="mobile-nav" class="pilot-nav-panel border-t border-line px-5 py-4 sm:hidden">
+      <nav class="flex flex-col gap-3 text-sm" aria-label="Mobile">
+        <a href='/'>Home</a>
+        <a href='/tools/'>Tools</a>
+        <a href='/about'>About</a>
+        <a href='/privacy'>Privacy</a>
+        <a href='/terms'>Terms</a>
+        <a class='pilot-btn pilot-btn-primary mt-2 !text-sm' href='/tools/reply'>Get Started Free</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="flex-1">
+    <section class="pilot-hero mx-auto max-w-5xl px-5 pt-20 pb-16 sm:pt-28 sm:pb-20">
+      <p class="pilot-eyebrow">Pilot™ · free web app</p>
+      <h1 class="font-display text-4xl leading-[1.12] tracking-tight text-ink sm:text-5xl lg:text-[3.5rem]">
+        Free AI tools for everyday work
+      </h1>
+      <p class="mt-5 max-w-xl text-lg text-ink-muted leading-relaxed">
+        Draft clearer replies and handle routine writing tasks — free, in your browser.
+      </p>
+      <div class="mt-10 flex flex-wrap items-center gap-4">
+        <a class='pilot-btn pilot-btn-primary text-base !px-7 !py-3.5' href='/tools/reply'>Get Started Free</a>
+        <p class="text-xs text-ink-muted">Free at <span class="font-medium text-ink">get-pilot-app.netlify.app</span> while a custom Pilot domain is not in place.</p>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-5xl px-5 pb-20" id="tools">
+      <div class="flex items-baseline justify-between gap-4 mb-6">
+        <h2 class="font-display text-2xl text-ink">Tools</h2>
+        <a class='text-sm font-medium text-accent hover:text-accent-deep' href='/tools/'>View all</a>
+      </div>
+      <div class="grid gap-4 sm:grid-cols-2">
+        <a class='pilot-surface group block p-6 transition hover:border-accent/40' href='/tools/reply'>
+          <div class="flex items-center justify-between gap-3">
+            <h3 class="font-display text-xl text-ink">Reply</h3>
+            <span class="rounded-full bg-accent-soft px-2.5 py-0.5 text-xs font-semibold text-accent">Live</span>
+          </div>
+          <p class="mt-2 text-sm text-ink-muted leading-relaxed">Paste a customer message, pick a tone, get a draft you can edit and copy.</p>
+          <p class="mt-4 text-sm font-semibold text-accent group-hover:text-accent-deep">Open Reply →</p>
+        </a>
+        <a class="pilot-surface group block p-6 transition hover:border-accent/40" href="/tools/business-writer">
+          <div class="flex items-center justify-between gap-3">
+            <h3 class="font-display text-xl text-ink">Business Writer</h3>
+            <span class="rounded-full bg-accent-soft px-2.5 py-0.5 text-xs font-semibold text-accent">Live</span>
+          </div>
+          <p class="mt-2 text-sm text-ink-muted">Everyday business writing drafts.</p>
+          <p class="mt-4 text-sm font-semibold text-accent group-hover:text-accent-deep">Open Business Writer →</p>
+        </a>
+        <a class="pilot-surface group block p-6 transition hover:border-accent/40" href="/tools/resume-helper">
+          <div class="flex items-center justify-between gap-3">
+            <h3 class="font-display text-xl text-ink">Resume Helper</h3>
+            <span class="rounded-full bg-accent-soft px-2.5 py-0.5 text-xs font-semibold text-accent">Live</span>
+          </div>
+          <p class="mt-2 text-sm text-ink-muted">Resume and cover-letter helpers.</p>
+          <p class="mt-4 text-sm font-semibold text-accent group-hover:text-accent-deep">Open Resume Helper →</p>
+        </a>
+        <a class="pilot-surface group block p-6 transition hover:border-accent/40" href="/tools/message-check">
+          <div class="flex items-center justify-between gap-3">
+            <h3 class="font-display text-xl text-ink">Message Check</h3>
+            <span class="rounded-full bg-accent-soft px-2.5 py-0.5 text-xs font-semibold text-accent">Live</span>
+          </div>
+          <p class="mt-2 text-sm text-ink-muted">Spot suspicious messages before you act.</p>
+          <p class="mt-4 text-sm font-semibold text-accent group-hover:text-accent-deep">Open Message Check →</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-5xl px-5 pb-16">
+      <div class="pilot-disclaimer px-5 py-4 text-sm leading-relaxed">
+        <strong>Please review before you send.</strong> Drafts may contain mistakes. Do not paste passwords, payment details, or private customer data.
+      </div>
+      <p class="mt-4 text-sm text-ink-muted">
+        Pilot is a <strong class="text-ink">free web app</strong> — use <strong class="text-ink">Add to Home Screen</strong> in your browser.
+        Not on the App Store or Google Play Store.
+        <a class='text-accent hover:text-accent-deep' href='/tools/reply#install'>How to install</a>
+      </p>
+    </section>
+
+    <section class="border-t border-line bg-white/50">
+      <div class="mx-auto max-w-xl px-5 py-14">
+        <h2 class="font-display text-2xl text-ink">Feedback</h2>
+        <p class="mt-2 text-sm text-ink-muted">Was this useful? What should we build next?</p>
+        <form name="pilot-feedback" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="mt-6 space-y-4">
+          <input type="hidden" name="form-name" value="pilot-feedback">
+          <input type="hidden" name="source" value="home">
+          <p class="hidden" aria-hidden="true"><label>Don’t fill this out: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+          <div>
+            <label class="block text-sm font-medium text-ink" for="useful">Useful?</label>
+            <select id="useful" name="useful" required class="pilot-select mt-1.5">
+              <option value="">Select…</option>
+              <option value="yes">Yes</option>
+              <option value="somewhat">Somewhat</option>
+              <option value="no">No</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-ink" for="next_tool">Next tool</label>
+            <select id="next_tool" name="next_tool" class="pilot-select mt-1.5">
+              <option value="">Select…</option>
+              <option value="Business Writer">Business Writer</option>
+              <option value="Resume Helper">Resume Helper</option>
+              <option value="Message Check">Message Check</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-ink" for="email">Email <span class="text-ink-muted font-normal">(optional)</span></label>
+            <input type="email" id="email" name="email" autocomplete="email" class="pilot-input mt-1.5" placeholder="you@example.com">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-ink" for="comments">Comments</label>
+            <textarea id="comments" name="comments" rows="3" class="pilot-textarea mt-1.5" placeholder="What worked, what didn’t…"></textarea>
+          </div>
+          <button type="submit" class="pilot-btn pilot-btn-primary">Send feedback</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-line mt-auto">
+    <div class="mx-auto flex max-w-5xl flex-col gap-6 px-5 py-10 sm:flex-row sm:items-start sm:justify-between">
+      <div>
+        <a class='font-display text-lg font-semibold text-ink' href='/'>Pilot</a>
+        <p class="mt-1 text-sm text-ink-muted">Free AI tools for everyday work</p>
+        <p class="mt-3 text-xs text-ink-muted/80">Pilot™ · Reply™</p>
+      </div>
+      <nav class="flex flex-wrap gap-x-5 gap-y-2 text-sm text-ink-muted" aria-label="Footer">
+        <a class='hover:text-ink' href='/'>Home</a>
+        <a class='hover:text-ink' href='/tools/'>Tools</a>
+        <a class='hover:text-ink' href='/about'>About</a>
+        <a class='hover:text-ink' href='/privacy'>Privacy</a>
+        <a class='hover:text-ink' href='/terms'>Terms</a>
+        <a class='hover:text-ink' href='/brand'>Brand</a>
+        <a class='hover:text-ink' href='/copyright'>Copyright</a>
+        <a class='hover:text-ink' href='/ip'>IP</a>
+      </nav>
+    </div>
+    <div class="border-t border-line/70">
+      <p class="mx-auto max-w-5xl px-5 py-4 text-xs text-ink-muted">© <span class="y"></span> DINESHGOPISUNKARA · Pilot</p>
+    </div>
+  </footer>
+  <script>
+    document.querySelectorAll(".y").forEach(function(el){ el.textContent = new Date().getFullYear(); });
+    (function(){
+      var btn = document.getElementById("nav-toggle");
+      var panel = document.getElementById("mobile-nav");
+      if (btn && panel) {
+        btn.addEventListener("click", function(){
+          var open = panel.classList.toggle("open");
+          btn.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+      }
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function(){
+          navigator.serviceWorker.register("sw.js").catch(function(){});
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
