@@ -101,12 +101,7 @@
   }
 
   function greeting(tone, audience) {
-    var who = audienceLabel(audience);
-    if (/^the /i.test(who) || /team|group|everyone|all/i.test(who)) {
-      if (tone === "friendly") return "Hi " + who + ",";
-      if (tone === "concise") return "Hello " + who + " —";
-      return "Hello " + who + ",";
-    }
+    var who = audienceLabel(audience).replace(/^the /i, "");
     if (tone === "friendly") return "Hi " + who + ",";
     if (tone === "concise") return "Hello " + who + " —";
     return "Hello " + who + ",";

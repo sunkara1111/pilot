@@ -30,7 +30,7 @@ var emailDraft = writer.generate({
 });
 assert(/Subject:/i.test(emailDraft), "Business Writer includes a subject");
 assert(/Oct|October|QA|freeze/i.test(emailDraft), "Business Writer uses the pasted notes");
-assert(/design team/i.test(emailDraft), "Business Writer uses the audience");
+assert(/Hello design team/i.test(emailDraft), "Business Writer greets the audience cleanly");
 assert(/Northwind/i.test(emailDraft), "Business Writer uses the sign-off");
 assert(emailDraft.length > 120, "Business Writer draft is substantial");
 assert(writer.generate({ notes: "" }) === "", "Business Writer rejects empty notes");
