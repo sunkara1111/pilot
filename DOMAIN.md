@@ -30,3 +30,4 @@ After DNS and TLS are live:
 - [ ] `http://YOUR-DOMAIN` redirects to HTTPS
 - [ ] The public UI has no Netlify badge, drawer, HUD, or `*.netlify.app` copy
 - [ ] `SITE_URL` is the https origin and a fresh deploy has stamped canonicals
+- [ ] Search Console HTML verification stays at `/google04d4f9506cc11bf7.html` on the live host (and on `YOUR-DOMAIN` after DNS)

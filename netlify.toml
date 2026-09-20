@@ -18,6 +18,13 @@
   status = 200
   force = true
 
+# Google Search Console HTML file verification. Keep this path at site root.
+[[headers]]
+  for = "/google04d4f9506cc11bf7.html"
+  [headers.values]
+    Content-Type = "text/html; charset=UTF-8"
+    Cache-Control = "public, max-age=300"
+
 [[headers]]
   for = "/*"
   [headers.values]
