@@ -1,6 +1,5 @@
 # Pilot — free web app (static)
-# Production robots policy for the live free Netlify site.
 User-agent: *
 Allow: /
 
-Sitemap: https://get-pilot-app.netlify.app/sitemap.xml
+Sitemap: /sitemap.xml

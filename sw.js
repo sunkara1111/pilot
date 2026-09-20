@@ -1,9 +1,10 @@
 /* Pilot service worker — cache shell for free web app / Add to Home Screen */
-const CACHE = "pilot-shell-v3";
+const CACHE = "pilot-shell-v4";
 const PRECACHE = [
   "./",
   "./index.html",
   "./css/pilot.css",
+  "./js/site-config.js",
   "./js/reply-composer.js",
   "./js/pilot-page.js",
   "./js/business-writer.js",

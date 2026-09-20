@@ -1,6 +1,6 @@
 [build]
   publish = "."
-  command = "node tests/composers.test.js"
+  command = "node tests/composers.test.js && node tests/branding.test.js && node scripts/stamp-site-url.js"
 
 [build.processing]
   skip_processing = false

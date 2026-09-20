@@ -2,7 +2,7 @@
   "name": "Pilot — Free AI tools",
   "short_name": "Pilot",
   "description": "Free AI tools for everyday work. Free web app — Add to Home Screen. Not on the App Store or Google Play Store.",
-  "start_url": "https://get-pilot-app.netlify.app/",
+  "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "orientation": "any",

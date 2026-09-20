@@ -27,8 +27,20 @@ Then open `http://127.0.0.1:4173/`.
 
 ```bash
 node tests/composers.test.js
+node tests/branding.test.js
 ```
 
 ## Deploy
 
-This is a static site. After merge, publish the repo root on Netlify (pretty URLs + `netlify.toml` redirects). Enable the existing `pilot-feedback` Netlify form if this project is a new site connection. No API keys are required.
+Static site. Publish the repo root. `netlify.toml` pretty-URL redirects and `data-netlify` feedback forms stay for hosting — they are not visitor-facing badges.
+
+Public pages use path-relative links. Canonicals, Open Graph URLs, sitemap, and `js/site-config.js` read a `SITE_URL` env/config constant. Leave it unset until a custom domain is attached. Do not set `SITE_URL` to a `*.netlify.app` host; the stamp script will refuse that.
+
+### After merge (Netlify UI)
+
+1. Disable Netlify Drawer / branded preview badges / “powered by” chrome so the public site is not a Netlify demo.
+2. Attach the custom Pilot domain and enable HTTPS.
+3. Set the `SITE_URL` environment variable to that https origin (no trailing slash), then redeploy so canonicals and the sitemap become absolute.
+4. Re-enable the `pilot-feedback` form if this is a new site connection.
+
+No API keys are required. No SunkaraOps branding.
