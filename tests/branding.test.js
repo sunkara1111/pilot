@@ -49,7 +49,10 @@ var banned = [
 
 visitorFiles.forEach(function (file) {
   var text = fs.readFileSync(file, "utf8");
+  var rel = path.relative(ROOT, file);
+  var crawlerOriginFiles = rel === "sitemap.xml" || rel === "robots.txt";
   banned.forEach(function (re) {
+    if (crawlerOriginFiles && re.source.indexOf("get-pilot-app") !== -1) return;
     check(!re.test(text), path.relative(ROOT, file) + " has no " + re);
   });
 });
@@ -74,6 +77,29 @@ check(gsc === "google-site-verification: google04d4f9506cc11bf7.html", "Search C
 var toml = fs.readFileSync(path.join(ROOT, "netlify.toml"), "utf8");
 check(toml.indexOf("/.netlify/scripts/hud") !== -1, "netlify.toml neutralizes the HUD script path");
 check(toml.indexOf("Content-Security-Policy") !== -1, "netlify.toml sets a public CSP");
+
+var sitemap = fs.readFileSync(path.join(ROOT, "sitemap.xml"), "utf8");
+var robotsTxt = fs.readFileSync(path.join(ROOT, "robots.txt"), "utf8");
+var expectedLocs = [
+  "https://get-pilot-app.netlify.app/",
+  "https://get-pilot-app.netlify.app/tools/",
+  "https://get-pilot-app.netlify.app/tools/reply",
+  "https://get-pilot-app.netlify.app/tools/business-writer",
+  "https://get-pilot-app.netlify.app/tools/resume-helper",
+  "https://get-pilot-app.netlify.app/tools/message-check",
+  "https://get-pilot-app.netlify.app/about",
+  "https://get-pilot-app.netlify.app/brand",
+  "https://get-pilot-app.netlify.app/ip",
+  "https://get-pilot-app.netlify.app/terms",
+  "https://get-pilot-app.netlify.app/privacy",
+  "https://get-pilot-app.netlify.app/copyright"
+];
+expectedLocs.forEach(function (url) {
+  check(sitemap.indexOf("<loc>" + url + "</loc>") !== -1, "sitemap includes " + url);
+});
+check(!/<loc>\//.test(sitemap), "sitemap has no path-relative <loc> values");
+check(!/<loc>[^<]+\.html<\/loc>/.test(sitemap), "sitemap prefers pretty URLs over .html");
+check(robotsTxt.indexOf("Sitemap: https://get-pilot-app.netlify.app/sitemap.xml") !== -1, "robots.txt Sitemap is absolute");
 
 if (failed) {
   console.error("\n" + failed + " branding check(s) failed");
