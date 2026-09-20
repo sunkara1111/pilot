@@ -29,7 +29,8 @@ function check(cond, msg) {
 var visitorFiles = walk(ROOT, []).filter(function (f) {
   var rel = path.relative(ROOT, f);
   if (rel.indexOf("scripts/") === 0 || rel.indexOf("tests/") === 0) return false;
-  if (rel === "README.md" || rel === "netlify.toml") return false;
+  if (rel === "README.md" || rel === "netlify.toml" || rel === "DOMAIN.md") return false;
+  if (rel === "js/empty.js") return false;
   return /\.(html|js|xml|txt|webmanifest|css)$/.test(f);
 });
 
@@ -40,6 +41,9 @@ var banned = [
   /name=["']hosting-provider["']/i,
   /name=["']netlify-deploy["']/i,
   /This site is hosted on Netlify/i,
+  /Powered by Netlify/i,
+  /Deploys by Netlify/i,
+  /www\.netlify\.com\/img/i,
   /SunkaraOps/i
 ];
 
@@ -63,6 +67,13 @@ check(fs.existsSync(path.join(ROOT, "netlify.toml")), "netlify.toml remains");
 
 require("../js/site-config.js");
 check(global.PilotSite && global.PilotSite.absolute("/tools/reply") === "/tools/reply", "unset SITE_URL stays path-relative");
+
+check(fs.existsSync(path.join(ROOT, "DOMAIN.md")), "DOMAIN.md custom-domain checklist exists");
+var gsc = fs.readFileSync(path.join(ROOT, "google04d4f9506cc11bf7.html"), "utf8").replace(/\n$/, "");
+check(gsc === "google-site-verification: google04d4f9506cc11bf7.html", "Search Console verification file has the exact body");
+var toml = fs.readFileSync(path.join(ROOT, "netlify.toml"), "utf8");
+check(toml.indexOf("/.netlify/scripts/hud") !== -1, "netlify.toml neutralizes the HUD script path");
+check(toml.indexOf("Content-Security-Policy") !== -1, "netlify.toml sets a public CSP");
 
 if (failed) {
   console.error("\n" + failed + " branding check(s) failed");

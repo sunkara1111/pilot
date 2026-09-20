@@ -38,8 +38,10 @@ Public pages use path-relative links. Canonicals, Open Graph URLs, sitemap, and 
 
 ### After merge (Netlify UI)
 
+See [DOMAIN.md](DOMAIN.md) for the custom-domain DNS/CNAME checklist (placeholder names only — do not invent a public hostname).
+
 1. Disable Netlify Drawer / branded preview badges / “powered by” chrome so the public site is not a Netlify demo.
-2. Attach the custom Pilot domain and enable HTTPS.
+2. Attach a domain you already own and enable HTTPS.
 3. Set the `SITE_URL` environment variable to that https origin (no trailing slash), then redeploy so canonicals and the sitemap become absolute.
 4. Re-enable the `pilot-feedback` form if this is a new site connection.
 
